@@ -12,36 +12,10 @@ Post.init(
       autoIncrement: true,
     },
     title: DataTypes.STRING,
-    body: DataTypes.STRING,
-    // title: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
-    // description: {
-    //   type: DataTypes.STRING,
-    // },
-    // content: {
-    //   type: DataTypes.STRING,
-    // },
-    // date_created: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   defaultValue: DataTypes.NOW,
-    // },
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'user',
-    //     key: 'id',
-    //   },
-    // },
+    content: DataTypes.STRING,
   },
   {
     sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'post',
   }
 );
 

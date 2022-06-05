@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="card-footer text-muted">
-      Posted by {{author}} on {{date}}
+      Posted by {{user.username}} on {{createdAt}}
     </div>
   </div>
 </div>
@@ -25,7 +25,7 @@
         <p class="card-text">{{comment.content}}</p>
       </div>
       <div class="card-footer text-muted">
-        Posted by {{comment.author}} on {{comment.date}}
+        Posted by {{comment.user.username}} on {{comment.createdAt}}
       </div>
     </div>
   </div>
