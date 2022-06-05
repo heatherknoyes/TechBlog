@@ -4,18 +4,21 @@ const withAuth = require('../utils/auth');
 
 const blogs = [
   {
+    id: 1,
     title: 'My Title',
     content: 'content',
     author: 'Heather Noyes',
     date: '03/17/1994',
   },
   {
+    id: 2,
     title: 'My Title2',
     content: 'content',
     author: 'Heather Noyes',
     date: '03/17/1994',
   },
   {
+    id: 3,
     title: 'My Title3',
     content: 'content',
     author: 'Heather Noyes',
@@ -43,28 +46,6 @@ router.get('/', async (req, res) => {
       blogs,
       logged_in: true,
       // logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/project/:id', async (req, res) => {
-  try {
-    const projectData = await Project.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const project = projectData.get({ plain: true });
-
-    res.render('project', {
-      ...project,
-      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -104,7 +85,7 @@ router.get('/create-blog', (req, res) => {
   });
 });
 
-router.get('/edit-blog', (req, res) => {
+router.get('/edit-blog/', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   // if (req.session.logged_in) {
   //   res.redirect('/profile');
@@ -123,6 +104,41 @@ router.get('/edit-blog', (req, res) => {
     ...blog,
     logged_in: true,
   });
+});
+
+router.get('/blogs/:id', async (req, res) => {
+  try {
+    // const projectData = await Project.findByPk(req.params.id, {
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //   ],
+    // });
+
+    // const blog = projectData.get({ plain: true });
+
+    const blog = {
+      id: 'id',
+      title: 'My Title',
+      content: 'content',
+      author: 'Heather Noyes',
+      date: '03/17/1994',
+      comments: [
+        { content: 'comment', author: 'Trey', date: '01/01/94' },
+        { content: 'comment2', author: 'Trey', date: '01/01/94' },
+      ],
+    };
+
+    res.render('blog-page', {
+      ...blog,
+      // logged_in: req.session.logged_in,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/login', (req, res) => {
