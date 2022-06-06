@@ -13,8 +13,11 @@
 </div>
 <div class="row">
   <form id="comment-form">
-    <textarea id="comment-text-area"></textarea>
-    <button id="comment-submit" data-id="{{id}}">Submit Comment</button>
+    <label for="create-post-content" class="form-label">Comment Here</label>
+    <div class="form-floating">
+      <textarea class="form-control" id="comment-text-area" style="height: 100px"></textarea>
+    </div>
+    <button id="comment-submit" class="my-3" data-id="{{id}}">Submit Comment</button>
   </form>
 </div>
 

@@ -53,18 +53,18 @@ router.get('/create-blog', (req, res) => {
   });
 });
 
-router.get('/edit-blog/', (req, res) => {
-  const blog = {
-    id: 'id',
-    title: 'My Title',
-    content: 'content',
-    author: 'Heather Noyes',
-    date: '03/17/1994',
-  };
-
+router.get('/edit-blog', async (req, res) => {
+  // Need to get the individual blog post id of the button clicked
+  const userData = await User.findByPk(req.session.user_id, {
+    attributes: { exclude: ['password'] },
+    include: [{ model: Post }],
+  });
+  // Serialize data so the template can read it
+  const user = userData.get({ plain: true });
+  console.log(user);
   res.render('edit-blog', {
-    ...blog,
-    logged_in: true,
+    ...user,
+    logged_in: req.session.logged_in,
   });
 });
 
