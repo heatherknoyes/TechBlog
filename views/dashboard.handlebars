@@ -1,13 +1,13 @@
 {{#if Posts}}
   {{#each Posts as |blog|}}
-    <div class="row">
+    <div class="row my-3">
       <div class="card">
         <div class="card-header">{{blog.title}}</div>
         <div class="card-body">
           <p class="card-text">
             {{blog.content}}
           </p>
-          <a href="/blog.html" class="btn btn-primary">Go somewhere</a>
+          <a href="/blogs/{{blog.id}}" class="btn btn-primary">Open Blog</a>
         </div>
         <div class="card-footer text-muted">
           <a href="/edit-blog">Edit Blog</a>
