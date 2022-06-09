@@ -19,6 +19,7 @@ router.put('/:id', withAuth, async (req, res) => {
   try {
     const updatedPost = await Post.update({
       ...req.body,
+      id: req.params.id,
       userId: req.session.user_id,
     });
 
@@ -28,7 +29,6 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
-// Still need to figure out how this works with the front end/back end
 router.delete('/:id', withAuth, async (req, res) => {
   console.log('Attempted');
   try {

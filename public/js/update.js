@@ -1,12 +1,13 @@
 const newUpdateHandler = async (evnt) => {
   evnt.preventDefault();
-  // const title = document.querySelector('#create-post-title').value;
-  const content = document.querySelector('#edit-blog-text-area').value;
-
-  await fetch('/api/posts', {
+  const title = document.querySelector('.card-header').innerHTML;
+  console.log(title);
+  const content = document.querySelector('#edit-blog-textarea').value;
+  const id = evnt.target.getAttribute('data-id');
+  await fetch(`/api/posts/${id}`, {
     method: 'PUT',
     body: JSON.stringify({
-      // title,
+      title,
       content,
     }),
     headers: { 'Content-Type': 'application/json' },

@@ -1,11 +1,14 @@
 <div class="row">
-  <div class="card">
+  <div class="card my-3">
     <div class="card-header">{{title}}</div>
     <div class="card-body">
       <textarea class="form-control" id="edit-blog-textarea" style="height: 100px">{{content}}</textarea>
     </div>
     <div class="card-footer text-muted">
-      <button id="edit-blog-save-button" data-id="{{id}}">Save</button>
+      <button id="edit-blog-save-button" data-id="{{id}}">Save Blog</button>
+      <button id="delete-post-button" data-id="{{id}}" style="background-color: red;">Delete Blog</button>
     </div>
   </div>
 </div>
+<script src="/js/delete.js"></script>
+<script src="/js/update.js"></script>

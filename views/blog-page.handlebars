@@ -21,20 +21,17 @@
   </form>
 </div>
 
-{{#each comments as |comment|}}
+{{#each Comments as |comment|}}
   <div class="row my-1">
     <div class="card">
       <div class="card-body">
         <p class="card-text">{{comment.content}}</p>
       </div>
-      <div class="card-footer text-muted">
+      <div class="card-footer text-muted" style="background-color: #dcd0ff;">
         Posted by {{comment.user.username}} on {{format_date comment.createdAt}}
       </div>
     </div>
   </div>
 {{/each}}
 
- {{! -- TODO if the current user is the one who created the blog post then the delete button will show --}}
-<button class="delete-post-button" data-id="{{blog.id}}">Delete Post</button>
-
-{{!-- <script src="./js/delete.js"></script> --}}
+<script src="/js/comment.js"></script>
