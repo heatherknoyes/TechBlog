@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="card-footer text-muted">
-      Posted by {{user.username}} on {{createdAt}}
+      Posted by {{user.username}} on {{format_date createdAt}}
     </div>
   </div>
 </div>
@@ -28,8 +28,13 @@
         <p class="card-text">{{comment.content}}</p>
       </div>
       <div class="card-footer text-muted">
-        Posted by {{comment.user.username}} on {{comment.createdAt}}
+        Posted by {{comment.user.username}} on {{format_date comment.createdAt}}
       </div>
     </div>
   </div>
 {{/each}}
+
+ {{! -- TODO if the current user is the one who created the blog post then the delete button will show --}}
+<button class="delete-post-button" data-id="{{blog.id}}">Delete Post</button>
+
+{{!-- <script src="./js/delete.js"></script> --}}

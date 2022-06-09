@@ -43,7 +43,7 @@
               {{/unless}}
               {{#if logged_in}}
                 <li class="nav-item">
-                  <a class="nav-link logout" href="/">Logout</a>
+                  <button class="nav-link logout" id="logout">Logout</button>
                 </li>
               {{/if}}
             </ul>
@@ -57,4 +57,9 @@
       </main>
     </header>
   </body>
+{{#if logged_in}}
+  <script src="./js/logout.js"></script>
+{{/if}}
+{{!-- <script src="./js/update.js"></script> --}}
 </html>
+

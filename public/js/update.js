@@ -1,12 +1,12 @@
 const newUpdateHandler = async (evnt) => {
   evnt.preventDefault();
   // const title = document.querySelector('#create-post-title').value;
-  // const content = document.querySelector('#create-post-content').value;
+  const content = document.querySelector('#edit-blog-text-area').value;
 
   await fetch('/api/posts', {
     method: 'PUT',
     body: JSON.stringify({
-      title,
+      // title,
       content,
     }),
     headers: { 'Content-Type': 'application/json' },

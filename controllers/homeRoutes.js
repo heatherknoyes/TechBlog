@@ -53,12 +53,9 @@ router.get('/create-blog', (req, res) => {
   });
 });
 
-router.get('/edit-blog', async (req, res) => {
+router.get('/edit-blog/:id', async (req, res) => {
   // Need to get the individual blog post id of the button clicked
-  const userData = await User.findByPk(req.session.user_id, {
-    attributes: { exclude: ['password'] },
-    include: [{ model: Post }],
-  });
+  const userData = await Post.findByPk(req.params.id);
   // Serialize data so the template can read it
   const user = userData.get({ plain: true });
   console.log(user);
@@ -85,7 +82,6 @@ router.get('/blogs/:id', async (req, res) => {
     res.render('blog-page', {
       ...blog,
       logged_in: req.session.logged_in,
-      // logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);

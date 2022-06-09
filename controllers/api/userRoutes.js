@@ -49,13 +49,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// TODO
-// This is still saving the cookie so it looks like the user is still logged in.
-// Need to figure out a way to get it such that the user is no longer logged in and the cookie is deleted.
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
-    req.session.user = null;
-
     req.session.destroy(() => {
       res.status(204).end();
     });
