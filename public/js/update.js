@@ -1,7 +1,6 @@
 const newUpdateHandler = async (evnt) => {
   evnt.preventDefault();
   const title = document.querySelector('.card-header').innerHTML;
-  console.log(title);
   const content = document.querySelector('#edit-blog-textarea').value;
   const id = evnt.target.getAttribute('data-id');
   await fetch(`/api/posts/${id}`, {

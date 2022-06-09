@@ -58,7 +58,6 @@ router.get('/edit-blog/:id', async (req, res) => {
   const userData = await Post.findByPk(req.params.id);
   // Serialize data so the template can read it
   const user = userData.get({ plain: true });
-  console.log(user);
   res.render('edit-blog', {
     ...user,
     logged_in: req.session.logged_in,

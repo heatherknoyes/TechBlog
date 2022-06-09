@@ -17,14 +17,16 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const updatedPost = await Post.update({
-      ...req.body,
-      id: req.params.id,
-      userId: req.session.user_id,
-    });
+    const updatedPost = await Post.update(
+      {
+        ...req.body,
+      },
+      { where: { id: req.params.id } }
+    );
 
     res.status(200).json(updatedPost);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
