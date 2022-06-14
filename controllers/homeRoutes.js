@@ -53,7 +53,7 @@ router.get('/create-blog', (req, res) => {
   });
 });
 
-router.get('/edit-blog/:id', async (req, res) => {
+router.get('/edit-blog/:id', withAuth, async (req, res) => {
   // Need to get the individual blog post id of the button clicked
   const userData = await Post.findByPk(req.params.id, {
     include: [
