@@ -6,7 +6,7 @@ The motivation for this project was to create a blog site where a user could inp
 
 Note: The application has a cookie expiration of 5 minutes. If you click on any button after that time the application will ask you to sign in again.
 
-[Functioning Application](https://drive.google.com/file/d/1JVjMq3okLjP7JDPnsIwYb503PJ9IhpSW/view)
+[Functioning Application](https://damp-gorge-36049.herokuapp.com/)
 
 ## Table of Contents
 
