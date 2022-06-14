@@ -16,7 +16,7 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'Super secret secret',
-  // login will expire after 5 minute
+  // login will expire after 5 minutes
   cookie: { expires: 60000 * 5 },
   resave: false,
   saveUninitialized: true,

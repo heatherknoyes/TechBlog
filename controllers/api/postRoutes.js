@@ -32,7 +32,6 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
-  console.log('Attempted');
   try {
     const post = await Post.destroy({
       where: {

@@ -2,7 +2,6 @@ const newCommentHandler = async (evnt) => {
   evnt.preventDefault();
   const content = document.querySelector('#comment-text-area').value;
   const id = window.location.href.split('/').pop();
-  console.log(id);
 
   await fetch(`/api/comments`, {
     method: 'POST',
@@ -28,7 +27,7 @@ const delButtonHandler = async (event) => {
   }
 };
 
-const newUpdateHandler = async (evnt) => {
+const commentUpdateHandler = async (evnt) => {
   evnt.preventDefault();
   // const title = document.querySelector('.card-header').innerHTML;
   const content = document.querySelector('#edit-comment-textarea').value;
@@ -48,10 +47,10 @@ document
   .querySelector('#comment-submit')
   .addEventListener('click', newCommentHandler);
 
-document
-  .querySelector('#delete-comment-button')
-  .addEventListener('click', delButtonHandler);
+// document
+//   .querySelector('#delete-comment-button')
+//   .addEventListener('click', delButtonHandler);
 
-document
-  .querySelector('#edit-blog-save-button')
-  .addEventListener('click', newUpdateHandler);
+// document
+//   .querySelector('#edit-comment-save-button')
+//   .addEventListener('click', commentUpdateHandler);

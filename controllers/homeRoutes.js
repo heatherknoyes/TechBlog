@@ -55,7 +55,11 @@ router.get('/create-blog', (req, res) => {
 
 router.get('/edit-blog/:id', async (req, res) => {
   // Need to get the individual blog post id of the button clicked
-  const userData = await Post.findByPk(req.params.id);
+  const userData = await Post.findByPk(req.params.id, {
+    include: [
+      { model: Comment, include: { model: User, attributes: ['username'] } },
+    ],
+  });
   // Serialize data so the template can read it
   const user = userData.get({ plain: true });
   res.render('edit-blog', {
